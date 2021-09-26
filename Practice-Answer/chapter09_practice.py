@@ -39,12 +39,13 @@ Slide Type
 """
 def pyramid(n):
     for i in range(n):
-        print(" " * (n - i), end="")  #(n-i) 개의 space를 출력
-        for j in range(1, i + 2):     #1 에서 i+1 까지의 숫자를 출력
-            print(j, end="")
-        for j in range(i, 0, -1):     #i 에서 1 까지 역순으로 출력
-            print(j, end="")
+        print("  " * (n-i), end='')  #(n-i) 개의 space를 출력
+        for j in range(1, i+2):        #1 에서 i+1 까지의 숫자를 출력
+            print(j, end='')
+        for k in range(j-1, 0, -1):     #j-1 에서 1 까지 역순으로 출력
+            print(k, end='')
         print()
+
 pyramid(7)
 #%%
 """

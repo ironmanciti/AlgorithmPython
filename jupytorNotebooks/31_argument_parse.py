@@ -15,7 +15,7 @@ def _parse_arguments(argv):
         type=str,
         default="2020.12.31"
     )
-    import IPython; IPython.embed();
+
     return parser.parse_known_args(argv)
 
 def hello():
@@ -23,10 +23,9 @@ def hello():
 
 if __name__ == '__main__':
     hello()
-    print(sys.argv)
-    print(sys.argv[0])
-    print(sys.argv[1])
-    print(sys.argv[1:])
+#     print(sys.argv)
+#     print(sys.argv[1:])
     
     args = _parse_arguments(sys.argv[1:])[0]
     print(args)
+    print(args.from_date, args.to_date)
