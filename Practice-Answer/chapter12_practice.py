@@ -1,47 +1,46 @@
 """
-1) 다음의 print 결과는 ?
+1) 다음 list 에서 10 과 30 사이의 숫자 중 홀수만 골라 출력하라.
+    xlist = [-5, 5, 10, 12, 13, 14, 15, 25, 30, 40, 55, 100]
 """
-s = "Python is awesome"
-print(s[1:3])
-#%%
-"""
-2) "Spam and Eggs" 를 입력할 때 다음 프로그램의 출력 결과는 ?
-"""
-def main():
-    msg = input("Enter a phrase:  ")
-    for w in msg.split():
-        print(w[0], end="")
+xlist = [-5, 5, 10, 12, 13, 14, 15, 25, 30, 40, 55, 100]
 
-main()
+for n in xlist:
+    if n >= 10 and n <= 30:
+        if n % 2 == 1:
+            print(n, end=" ")
+
 #%%
 """
-3) 다음의 출력 결과는 ?
+2) 파이썬 강좌의 수강생 목록은 다음과 같다. 어떤 사람이 수강생 목록에 존재하는지
+    check 하는 함수를 작성하라.
+    목록에 존재하면 True, 존재하지 않으면 False 를 반환한다.
+
+   학생부 : ["김철수", "홍길동", "Jone Doe", "김정은", "트럼프", "성춘향"]
 """
-for x in "Mississippi".split("i"):
-    print(x, end="")
-#%%
-"""
-4) 다음 출력 결과는 ?
-"""
-s = "Jane Doe"
-print(s[3 : 1 : -1])
-#%%
-"""
-5) s = "Hello, Python World" 을 alphabet 별로 몇개인지 계산 (단, 대소문자 무시)
-    * hint : 1. "," 와 " " 을 "" 로 replace
-    2. s.lower() 를 이용하여 소문자로 통일
-    3. dictionary 를 이용하여 알파벳 별 개수 누적
-"""
-s = "Hello, Python World"
-s = s.replace(" ", "")
-s = s.replace(",", "")
-s = s.lower()
-word_cnt = {}
-for letter in s:
-    if letter in word_cnt:
-        word_cnt[letter] += 1
+def check_list(lst, name):
+    if name in lst:
+        return True
     else:
-        word_cnt[letter] = 1
+        return False
 
-for k, v in sorted(word_cnt.items()):
-    print(k, v)
+students = ["김철수", "홍길동", "Jone Doe", "김정은", "트럼프", "성춘향"]
+
+print(check_list(students, "홍길동"))
+#%%
+"""
+3) 다음의 주민번호 리스트에서 남, 녀 별로 90 년생 이후 출생자를 골라내라.
+"""
+id_list = ['920801-1041798', '800902-2048746', '971010-1023987', '871203-2014987',
+         '820801-1041798', '900902-2048746', '941010-1023987', '971203-2014987']
+
+man = []
+lady = []
+
+for id in id_list:
+    if id[:2] >= '90' and id[7] == '1':
+        man.append(id)
+    else:
+        lady.append(id)
+
+print('남성 =', man)
+print('여성 =', lady)

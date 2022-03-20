@@ -1,56 +1,36 @@
 """
-1) 다음의 출력 결과는 ?
+1) parameter 로 받은 string 의 양 끝단 2 글자를 붙여서 반환하는 함수
 """
-d = {'a': 2, 'b': 4, 'c': 9}
-for x in sorted(d):
-    print(d[x], end="")
+def both_ends(s):
+    if len(s) < 2:
+        return ''
+    first2 = s[:2]
+    last2 = s[-2:]
+    return first2 + last2
 
-"""
-2) 다음의 출력 결과는 ?
-"""
-d = {'a': 2, 'b': 4, 'c': 9}
-for x in sorted(d.values()):
-    print(x, end="")
+print(both_ends('spring'))
+print(both_ends('Hello'))
+
 #%%
 """
-3) 다음의 출력 결과는 ?
+2) 두개의 문자열을 parameter 로 받아 서로의 첫번째 두 글자를 교환한 후 중간에 한칸 띄우고 반환하는 함수
 """
-d = {'a': 21, 'b': 4, 'c': 9}
-for x in sorted(d.items()):
-    print(x, end="")
-#%%
-d = {'a': 21, 'b': 4, 'c': 9}
-print(sorted(d.items(), key=lambda kv: kv[1]))
-#%%
-"""
-4) dictionary 를 이용하여 자신의 정보를 구조화 하여 작성
-"""
-personInfo = {
-    'name': '오영제',
-    '성별': '남성',
-    '거주지': {
-            '도시': '서울',
-            '동': '충무로',
-            '주소': '123-45',
-            },
-    '전화번호': 1012345678,
-    '신장': 175.17
-}
+def mix_up(a, b):
+    a_swapped = b[:2] + a[2:]
+    b_swapped = a[:2] + b[2:]
+    return a_swapped + ' ' + b_swapped
 
-print(personInfo)
+print(mix_up('frog', 'dinner'))
 #%%
-"""
-5) 두개의 주사위를 던져서 두 주사위의 합이 같은 것끼리 출력
-"""
-import pprint
-d = {}
 
-for dice1 in range(1, 7):
-    for dice2 in range(1, 7):
-        newTuple = (dice1, dice2)
-        added = dice1 + dice2
-        if added not in d:
-            d[added] = []
-        d[added].append(newTuple)
+"""
+3) 두개의 parameter 를 받아서 두개가 같으면 SAME 다르면 Different 를 반환하는 함수
+"""
+def test(got, expected):
+    if got == expected:
+        print('SAME')
+    else:
+        print('Different')
 
-pprint.pprint(d)
+test('a', 'a')
+test('aba', 'aca')
