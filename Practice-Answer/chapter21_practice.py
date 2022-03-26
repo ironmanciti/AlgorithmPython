@@ -20,7 +20,7 @@ def findword(word):
         elif words[middle] > word:
             start, end = 0, middle
         else:
-            start, end = middle + 1, len(word_list)
+            start, end = middle + 1, len(words)
         words = words[start:end]
 
 print(findword('헌법재판소는'))
