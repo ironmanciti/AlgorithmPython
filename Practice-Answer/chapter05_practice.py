@@ -7,6 +7,7 @@ def linear(x, m=1, b=0):
 
 print(linear(3, m=2, b=5))
 
+
 """
 2) 다음 함수가 수행된 후 print 되는 값은 ?
 """
